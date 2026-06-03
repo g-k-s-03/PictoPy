@@ -15,8 +15,9 @@ describe('Page Sanity Tests', () => {
   });
 
   describe('Settings Page', () => {
-    test('renders settings page sections', () => {
+    test('renders settings page sections', async () => {
       render(<Settings />);
+      await screen.findByRole('switch', { name: /launch at startup/i });
 
       expect(screen.getByText('Folder Management')).toBeInTheDocument();
       expect(screen.getByText('User Preferences')).toBeInTheDocument();
