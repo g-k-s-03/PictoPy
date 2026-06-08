@@ -8,7 +8,7 @@
   "bundle": {
     "active": true,
     "targets": ["nsis", "deb", "app"],
-    "createUpdaterArtifacts": true,
+    "createUpdaterArtifacts": false,
     "linux": {
       "deb": {
         "postInstallScript": "./postinstall.sh"
@@ -35,12 +35,6 @@
   "plugins": {
     "fs": {
       "requireLiteralLeadingDot": true
-    },
-    "updater": {
-      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDFCNzJEODdBNTdBMzc1NzMKUldSemRhTlhldGh5R3hRSktWUW5rTGN3b0g0T2tPdjM0bjF4NzlEblNvK0VQM1MzbWVKUFBjSEoK",
-      "endpoints": [
-        "https://github.com/AOSSIE-Org/PictoPy/releases/latest/download/latest.json"
-      ]
     }
   },
   "app": {
