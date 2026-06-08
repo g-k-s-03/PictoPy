@@ -35,6 +35,9 @@
   "plugins": {
     "fs": {
       "requireLiteralLeadingDot": true
+    },
+    "updater": {
+      "active": false
     }
   },
   "app": {
