@@ -191,7 +191,6 @@ fn prod(_app: &tauri::AppHandle, _resource_path: &std::path::Path) -> Result<(),
 fn main() {
     tauri::Builder::default()
         .plugin(tauri_plugin_opener::init())
-        .plugin(tauri_plugin_updater::Builder::new().build())
         .plugin(tauri_plugin_store::Builder::new().build())
         .plugin(tauri_plugin_shell::init())
         .plugin(tauri_plugin_fs::init())
