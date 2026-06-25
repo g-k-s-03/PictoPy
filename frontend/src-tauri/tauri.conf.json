@@ -8,7 +8,6 @@
   "bundle": {
     "active": true,
     "targets": ["nsis", "deb", "app"],
-    "createUpdaterArtifacts": false,
     "linux": {
       "deb": {
         "postInstallScript": "./postinstall.sh"
