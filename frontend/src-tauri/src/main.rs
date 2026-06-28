@@ -202,6 +202,8 @@ fn main() {
             println!("Resource path: {:?}", resource_path);
 
             prod(app.handle(), &resource_path)?;
+            // Give backends time to initialize before frontend connects
+            std::thread::sleep(std::time::Duration::from_millis(2000));
             Ok(())
         })
         .invoke_handler(tauri::generate_handler![
