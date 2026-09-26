@@ -56,10 +56,12 @@ export const useFolderOperations = () => {
       isPending: foldersQuery.isLoading,
       isSuccess: foldersQuery.isSuccess,
       isError: foldersQuery.isError,
+      error: foldersQuery.error,
     },
     {
       loadingMessage: 'Loading folders',
       showSuccess: false,
+      errorMessage: 'Failed to load folders. Please try again.',
       onSuccess: () => {
         const folders = foldersQuery.data?.data?.folders as FolderDetails[];
         dispatch(setFolders(folders));
