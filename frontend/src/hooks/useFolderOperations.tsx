@@ -33,6 +33,9 @@ export const useFolderOperations = () => {
       ? 1000
       : false,
     refetchIntervalInBackground: true,
+    staleTime: 1000,
+    retryOnMount: false, // Don't retry on component mount
+    refetchOnWindowFocus: false, // Don't refetch when window gains focus
   });
 
   const taggingStatusQuery = usePictoQuery({
