@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.0-folder-error-test.1]
+
+### Fixed
+
+- Fix folder loading error showing generic message and spamming dialogs
+
 ## [1.3.0-alpha] - 2026-09-16
 
 ### Added
