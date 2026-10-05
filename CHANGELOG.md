@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.0-sidebar-beta] - 2026-10-06
+
+### Added
+
+- Add a collapse/expand toggle button to the sidebar, with the open/closed state persisted across restarts (#942)
+
 ## [1.3.0-alpha] - 2026-09-16
 
 ### Added
