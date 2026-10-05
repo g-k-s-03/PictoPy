@@ -70,7 +70,7 @@ export function AppSidebar() {
       <SidebarHeader className="flex flex-row items-center justify-between px-3 py-3">
         {!isCollapsed && <div className="text-lg font-semibold">.</div>}
         <Button
-          variant="ghost"
+          variant="outline"
           size="icon"
           onClick={toggleSidebar}
           aria-label={isCollapsed ? 'Expand sidebar' : 'Collapse sidebar'}
