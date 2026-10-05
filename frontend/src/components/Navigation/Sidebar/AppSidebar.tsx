@@ -7,7 +7,9 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarSeparator,
+  useSidebar,
 } from '@/components/ui/sidebar';
+import { Button } from '@/components/ui/button';
 import {
   Bolt,
   Home,
@@ -16,6 +18,8 @@ import {
   Video,
   BookImage,
   ClockFading,
+  ChevronLeft,
+  ChevronRight,
 } from 'lucide-react';
 import { useLocation, Link } from 'react-router';
 import { ROUTES } from '@/constants/routes';
@@ -25,6 +29,8 @@ import { useEffect, useState } from 'react';
 export function AppSidebar() {
   const location = useLocation();
   const [version, setVersion] = useState<string>('1.0.0');
+  const { state, toggleSidebar } = useSidebar();
+  const isCollapsed = state === 'collapsed';
 
   useEffect(() => {
     getVersion().then((version) => {
@@ -61,8 +67,21 @@ export function AppSidebar() {
       collapsible="icon"
       className="border-border/40 border-r shadow-sm"
     >
-      <SidebarHeader className="flex justify-center py-3">
-        <div className="text-lg font-semibold">.</div>
+      <SidebarHeader className="flex flex-row items-center justify-between px-3 py-3">
+        {!isCollapsed && <div className="text-lg font-semibold">.</div>}
+        <Button
+          variant="ghost"
+          size="icon"
+          onClick={toggleSidebar}
+          aria-label={isCollapsed ? 'Expand sidebar' : 'Collapse sidebar'}
+          className="size-7 cursor-pointer"
+        >
+          {isCollapsed ? (
+            <ChevronRight className="h-4 w-4" />
+          ) : (
+            <ChevronLeft className="h-4 w-4" />
+          )}
+        </Button>
       </SidebarHeader>
       <SidebarSeparator className="mx-3 opacity-50" />
       <SidebarContent className="py-4">

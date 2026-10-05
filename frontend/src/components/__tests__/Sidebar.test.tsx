@@ -100,4 +100,47 @@ describe('Sidebar', () => {
       },
     );
   });
+
+  describe('Collapse Toggle Tests', () => {
+    test('toggle button collapses and expands the sidebar', async () => {
+      const user = userEvent.setup();
+      render(
+        <SidebarProvider>
+          <AppSidebar />
+        </SidebarProvider>,
+      );
+
+      const toggle = screen.getByRole('button', { name: 'Collapse sidebar' });
+      expect(screen.getByText('Home')).toBeInTheDocument();
+
+      await user.click(toggle);
+
+      expect(
+        screen.getByRole('button', { name: 'Expand sidebar' }),
+      ).toBeInTheDocument();
+
+      await user.click(screen.getByRole('button', { name: 'Expand sidebar' }));
+
+      expect(
+        screen.getByRole('button', { name: 'Collapse sidebar' }),
+      ).toBeInTheDocument();
+    });
+
+    test('toggling calls onOpenChange so the open state can be persisted', async () => {
+      const user = userEvent.setup();
+      const handleOpenChange = jest.fn();
+
+      render(
+        <SidebarProvider open={true} onOpenChange={handleOpenChange}>
+          <AppSidebar />
+        </SidebarProvider>,
+      );
+
+      await user.click(
+        screen.getByRole('button', { name: 'Collapse sidebar' }),
+      );
+
+      expect(handleOpenChange).toHaveBeenCalledWith(false);
+    });
+  });
 });
