@@ -73,7 +73,7 @@ export function AppSidebar() {
         type="button"
         onClick={toggleSidebar}
         aria-label={isCollapsed ? 'Expand sidebar' : 'Collapse sidebar'}
-        className="border-border bg-background text-muted-foreground hover:text-foreground absolute top-1/2 right-0 z-50 flex h-6 w-4 -translate-y-1/2 translate-x-1/2 cursor-pointer items-center justify-center rounded-full border shadow-sm"
+        className="border-border bg-background text-muted-foreground hover:text-foreground absolute top-1/2 right-0 z-50 flex h-6 w-4 translate-x-1/2 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border shadow-sm"
       >
         {isCollapsed ? (
           <ChevronRight className="h-3.5 w-3.5" />
@@ -82,7 +82,7 @@ export function AppSidebar() {
         )}
       </button>
       <SidebarSeparator className="mx-3 opacity-50" />
-      <SidebarContent className="py-4">
+      <SidebarContent className="pt-14 pb-4">
         <SidebarMenu className="space-y-2 px-3">
           {menuItems.map((item) => (
             <SidebarMenuItem key={item.path}>
@@ -102,10 +102,14 @@ export function AppSidebar() {
         </SidebarMenu>
       </SidebarContent>
       <SidebarFooter className="border-border/40 mt-auto border-t py-4">
-        <div className="text-muted-foreground space-y-1 px-4 text-xs">
-          <div className="font-medium">PictoPy v{version}</div>
-          <div>© {new Date().getFullYear()} PictoPy</div>
-        </div>
+        {!isCollapsed && (
+          <div className="text-muted-foreground space-y-1 overflow-hidden px-4 text-xs">
+            <div className="truncate font-medium">PictoPy v{version}</div>
+            <div className="truncate">
+              © {new Date().getFullYear()} PictoPy
+            </div>
+          </div>
+        )}
       </SidebarFooter>
     </Sidebar>
   );
