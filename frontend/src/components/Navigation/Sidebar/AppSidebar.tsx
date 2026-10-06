@@ -9,7 +9,6 @@ import {
   SidebarSeparator,
   useSidebar,
 } from '@/components/ui/sidebar';
-import { Button } from '@/components/ui/button';
 import {
   Bolt,
   Home,
@@ -67,22 +66,21 @@ export function AppSidebar() {
       collapsible="icon"
       className="border-border/40 border-r shadow-sm"
     >
-      <SidebarHeader className="flex flex-row items-center justify-between px-3 py-3">
+      <SidebarHeader className="flex justify-center py-3">
         {!isCollapsed && <div className="text-lg font-semibold">.</div>}
-        <Button
-          variant="outline"
-          size="icon"
-          onClick={toggleSidebar}
-          aria-label={isCollapsed ? 'Expand sidebar' : 'Collapse sidebar'}
-          className="size-7 cursor-pointer"
-        >
-          {isCollapsed ? (
-            <ChevronRight className="h-4 w-4" />
-          ) : (
-            <ChevronLeft className="h-4 w-4" />
-          )}
-        </Button>
       </SidebarHeader>
+      <button
+        type="button"
+        onClick={toggleSidebar}
+        aria-label={isCollapsed ? 'Expand sidebar' : 'Collapse sidebar'}
+        className="border-border bg-background text-muted-foreground hover:text-foreground absolute top-1/2 right-0 z-20 flex h-6 w-4 -translate-y-1/2 translate-x-1/2 cursor-pointer items-center justify-center rounded-full border opacity-0 shadow-sm transition-opacity group-hover:opacity-100 focus-visible:opacity-100"
+      >
+        {isCollapsed ? (
+          <ChevronRight className="h-3.5 w-3.5" />
+        ) : (
+          <ChevronLeft className="h-3.5 w-3.5" />
+        )}
+      </button>
       <SidebarSeparator className="mx-3 opacity-50" />
       <SidebarContent className="py-4">
         <SidebarMenu className="space-y-2 px-3">
